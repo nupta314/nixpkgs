@@ -1205,6 +1205,7 @@ in
   privoxy = runTest ./privoxy.nix;
   prometheus = import ./prometheus { inherit runTest; };
   prometheus-exporters = handleTest ./prometheus-exporters.nix { };
+  pyroscope = runTest ./pyroscope.nix;
   prosody = handleTest ./xmpp/prosody.nix { };
   prosody-mysql = handleTest ./xmpp/prosody-mysql.nix { };
   proxy = runTest ./proxy.nix;
