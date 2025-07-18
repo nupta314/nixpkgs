@@ -13,6 +13,7 @@ let
     mkIf
     mkOption
     types
+    xor
     ;
 
   cfg = config.services.pyroscope;
@@ -58,10 +59,7 @@ in
 
     assertions = [
       {
-        assertion = (
-          (cfg.configuration == { } -> cfg.configFile != null)
-          && (cfg.configFile != null -> cfg.configuration == { })
-        );
+        assertion = xor (cfg.configFile == null) (cfg.configuration == { });
         message = ''
           Please specify either
           'services.pyroscope.configuration' or
