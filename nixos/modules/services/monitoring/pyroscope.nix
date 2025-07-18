@@ -33,7 +33,7 @@ in
     };
 
     configFile = mkOption {
-      type = types.nullOr types.path;
+      type = with types; nullOr path;
       default = null;
       description = ''
         Specify a configuration file that Pyroscope should use.
@@ -43,7 +43,7 @@ in
     package = mkPackageOption pkgs "pyroscope" { };
 
     extraFlags = mkOption {
-      type = types.listOf types.str;
+      type = with types; listOf str;
       default = [ ];
       example = [ "--config.expand-env=true" ];
       description = ''
